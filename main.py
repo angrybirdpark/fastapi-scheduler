@@ -6,10 +6,6 @@ from datetime import datetime, timedelta
 
 from fastapi import FastAPI
 
-from pydantic import BaseModel
-
-from typing import Optional
-
 app = FastAPI()
 
 @app.get("/")
@@ -43,33 +39,6 @@ async def read_schedule(user_id: int, start: int, interval: int):
         interval = interval
         )
     return result
-
-# @app.get("/schedule/{user_id}/{start}/{interval}/")
-# async def read_schedule(user_id: int, start: int, interval: int):
-#     start_time = datetime.now() + timedelta(seconds=start)
-    
-#     def scheduler():
-#         print(f"user_id : {user_id}, time : {datetime.now()}")
-
-#     sched = BackgroundScheduler(timezone='Asia/Seoul')
-#     sched.start() 
-
-#     sched.add_job(
-#         scheduler,
-#         'interval',
-#         seconds=interval,
-#         start_date = start_time,
-#         id="scheduler"
-#         )
-
-#     result = dict()
-#     result.update(
-#         user_id  = user_id,
-#         now      = datetime.now(),
-#         start    = start_time,
-#         interval = interval
-#         )
-#     return result
 
 if __name__ == '__main__':
     uvicorn.run(app="main:app", host="0.0.0.0", port=8000, reload=True)
