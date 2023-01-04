@@ -1,0 +1,6 @@
+.idea
+scheduler.db
+*.pyc
+__pycache__
+migrations
+alembic.ini
