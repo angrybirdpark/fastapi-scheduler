@@ -38,5 +38,36 @@ async def read_schedule(user_id: int, start: int, interval: int):
         )
     return result
 
+# class CallSched(BaseModel):
+#     start_time   : str
+#     writing_cycle: int
+#     account      : str
+#     uid          : int
+
+
+# def job(shed_id, uid):
+#     print("start_schedule")
+
+# def scheduling_job(interval, start_time, id, uid):
+#     sched.add_job(lambda: job(id, uid), 'interval', seconds=interval, start_date=start_time, id=id)
+    
+
+# @app.get("/")
+# async def root():
+#     return {"message": "tripod-scheduler"}
+
+
+# @app.post("/sched/")
+# async def scheduler(callSched: CallSched):
+#     scheduling_job(callSched.writing_cycle, callSched.start_time, callSched.account, callSched.uid)
+#     return callSched
+
+
+# @app.post("/sched_change/")
+# async def modify(callSched: CallSched):
+#     sched.remove_job(callSched.account)
+#     scheduling_job(callSched.writing_cycle, callSched.start_time, callSched.account, callSched.uid)
+#     return callSched
+
 if __name__ == '__main__':
     uvicorn.run(app="main:app", host="0.0.0.0", port=8000, reload=True)
